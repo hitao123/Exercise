@@ -1,0 +1,15 @@
+	* {margin: 0; padding: 0; box-sizing: border-box;}
+	ul,li {list-style: none;}
+	a {text-decoration: none; color: #000}
+	body {font-family: "Arial"; font-size: 62.5%;}
+	.clearfix:after {content: ''; clear: both; display: block; height: 0; visibility: hidden;}
+	#container {width: 602px; margin: 10px auto; border: 1px solid #ddd;}
+	#nav {position: relative; height: 30px;}
+	#nav>ul {position: absolute; left: -1px; width: 601px; height: 30px; }
+	#nav ul li {float: left; width: 120px; height: 30px; text-align: center; border-bottom: 1px solid #eee; background-color: #f3f3f3;}
+	#nav ul li.select {background-color: #fff; font-weight: bold; border-bottom: none; border-left: 1px solid #eee; border-right: 1px solid #fff;}
+	#nav ul li a {display: block; padding: 5px; font-size: 14px; line-height: 20px;}
+	#main .con {padding: 1em 2em;}
+	.con ul li {display: inline-block; width: 190px; height: 30px; }
+	.con ul li a {font-size: 14px; line-height: 30px; padding: 8px 10px; } 
+	.con ul li a:hover {color: orange;} 

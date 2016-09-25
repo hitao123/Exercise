@@ -1,0 +1,21 @@
+* {margin: 0; padding: 0; box-sizing: border-box;}
+ul,li {list-style: none;}
+img {border: none;}
+a {text-decoration: none; color: #000}
+
+#carousel {position: relative; width: 492px; height: 172px; margin: 30px auto;
+ border: 1px solid #eee; overflow: hidden;}
+#pic {position: absolute;}
+#pic li {height: 170px;}
+#order {position: absolute; right: 4px; bottom: 6px; width: 102px; height: 20px; }
+ol li {float: left; width: 16px; height: 16px; border-radius: 50%; background-color: #ccc; margin: 2px; cursor: pointer;}
+ol li:hover {background-color: orange;}
+ol li.select {background-color: orange;}
+
+#fl {position: absolute; left:0; top:50%; width: 60px; height: 120px; transform: translateY(-50%); text-align: center;}
+#fr {position: absolute; right:0; top:50%; width: 60px; height: 120px; transform: translateY(-50%);text-align: center;}
+.fl a {display: block; line-height: 120px;}
+.fr a {display: block; line-height: 120px;}
+.fl a:hover {color: #fff;}
+.fr a:hover {color: #fff;}
+.fr:hover, .fl:hover {transition: background-color .5s ease-in; background-color: #000; opacity: 0.5; color: white;}

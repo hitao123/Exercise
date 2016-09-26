@@ -1,0 +1,19 @@
+	* {margin: 0; padding: 0; box-sizing: border-box;}
+	html,body {height: 100%;}
+	body {display: flex; flex-wrap: wrap; justify-content: center; align-items: center; 
+		background: linear-gradient(top,#222,#333);}
+	[class$='face'] {width: 104px; height: 104px; margin: 16px; padding: 4px; background-color: #e6e6e6; 
+		border-radius: 10%; box-shadow: inset 0 5px white, inset 0 -5px #bbb,inset 5px 0 #d7d7d7, inset -5px 0 #d7d7d7;}
+	.item {display: block; width: 24px; height: 24px; border-radius: 50%; margin: 4px; background-color: #333; box-shadow: inset 0 3px #111,inset 0 -3px #555;}
+    .first-face {display: flex; justify-content: center; align-items: center;}
+    .second-face {display: flex; justify-content: space-between;}
+    .second-face .item:nth-child(2){align-self: flex-end;} /* nth-child nth-of-type 区别*/
+    .third-face {display: flex; justify-content: space-between;}
+    .third-face .item:nth-child(2) {align-self: center;}
+    .third-face .item:nth-child(3) {align-self: flex-end;}
+    .fourth-face, .sixth-face {display: flex; flex-direction: column; justify-content: space-between;}
+    .fourth-face .coloum, .sixth-face .coloum {display: flex; justify-content: space-between;}
+    .fivth-face {display: flex; justify-content: space-between; flex-direction: column;}
+    .fivth-face .coloum {display: flex; justify-content: space-between;}
+    .fivth-face .coloum:nth-child(2){display: flex; justify-content: center;}   
+    

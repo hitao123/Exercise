@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Task 12</title>
+	<style type="text/css">
+         * {margin: 0; padding: 0;}
+         #con-tab {width: 300px;  text-align:  center; margin-bottom: 50px; font-weight: bold;}
+         #con-tab th {background-color: #000; color: #fff; border-right: 1px solid #fff; }
+         #con-tab td {border-right: 1px solid #fff; }
+         #con-tab tr:nth-child(even) {background-color: #ccc; color: #000; }
+         #con-tab tr:nth-child(1),#con-tab tr:nth-child(2),#con-tab tr:nth-child(3) { color: #f00;}
+         #text {width: 120px; height: 24px; box-shadow: 0 0 3px #000; transition: width .5s ease-in .1s; -webkit-transition: width .5s ease-in .1s; -moz-transition: width .5s ease-in .1s; -o-transition: width .5s ease-in .1s;}
+         #text:focus {width: 200px;}
+         #banner {position: relative; width: 600px; height: 300px; margin-top: 50px; margin-left: 50px; margin-bottom: 50px; border: 1px solid #eee; box-sizing: border-box; box-shadow: 0 0 3px #d2d2d2;}
+         #ban-1 {position: absolute; left: -660px; background-color: #297cd3; width: 600px; height: 300px; text-align: center; font: bold 200px/300px 宋体; color: #23aa21; }
+         #ban-2 {position: absolute; left: -660px; background-color: #6bacef; width: 600px; height: 300px; text-align: center; font: bold 200px/300px 宋体; color: #23aa21; }
+         #ban-3 {position: absolute; left: 0; background-color: #01254a; width: 600px; height: 300px; text-align: center; font: bold 200px/300px 宋体; color: #23aa21;}
+         #ban-ul {position: absolute; bottom: 15px; right: 20px; z-index: 20;}
+         #ban-ul a {display: inline-block; width: 40px; height: 40px; background-color: #f00; text-align: center; font: bold 14px/3 宋体; text-decoration: none; opacity: .6; filter: alpha(opacity=60); color: #000;}
+         @keyframes test {
+         	from {
+               left: -660px;
+         	}
+         	to {
+               left: 0;
+         	}
+         }
+         #ban-1:target {left: 0; z-index: 10; animation: test .5s linear; }
+         #ban-2:target {left: 0; z-index: 10; animation: test .5s linear; }
+         #ban-3:target {left: 0; z-index: 10; animation: test .5s linear; }
+	</style>
+</head>
+<body>
+	<div id="container" class="container">
+		<table id="con-tab" class="con-tab" cellpadding="0" cellspacing="0">
+			<thead>
+				<tr>
+					<th>排名</th>
+					<th>网站</th>
+					<th>热度</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1.</td>
+					<td>百度前端技术学院</td>
+					<td>12000</td>
+				</tr>
+				<tr>
+					<td>2.</td>
+					<td>百度前端技术学院</td>
+					<td>10000</td>
+				</tr>
+				<tr>
+					<td>3.</td>
+					<td>百度前端技术学院</td>
+					<td>8000</td>
+				</tr>
+				<tr>
+					<td>4.</td>
+					<td>百度前端技术学院</td>
+					<td>7000</td>
+				</tr>
+				<tr>
+					<td>5.</td>
+					<td>百度前端技术学院</td>
+					<td>10000</td>
+				</tr>
+				<tr>
+					<td>6.</td>
+					<td>百度前端技术学院</td>
+					<td>4000</td>
+				</tr>
+				<tr>
+					<td>7.</td>
+					<td>百度前端技术学院</td>
+					<td>5600</td>
+				</tr>
+				<tr>
+					<td>8.</td>
+					<td>百度前端技术学院</td>
+					<td>5600</td>
+				</tr>
+				<tr>
+					<td>9.</td>
+					<td>百度前端技术学院</td>
+					<td>8000</td>
+				</tr>
+				<tr>
+					<td>10.</td>
+					<td>百度前端技术学院</td>
+					<td>7000</td>
+				</tr>
+			</tbody>
+		</table>
+		<input type="text" id="text" class="text">
+		<div id="banner" class="banner">
+			<div id="ban-1">1</div>
+			<div id="ban-2">2</div>
+			<div id="ban-3">3</div>
+			<ul id="ban-ul">
+				<a id="li-1" href="#ban-1">1</a>
+				<a id="li-2" href="#ban-2">2</a>
+				<a id="li-3" href="#ban-3">3</a>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>FIFO</title>
+	<style type="text/css">
+       * {margin: 0; padding: 0;}
+       #inp {width: 200px; height: 24px; border: 2px solid #eee;}
+       #btn-grp {height: 24px; font: normal 14px/1 宋体; display: inline-block;}
+       #btn-grp>button {width: 80px; height: 24px; font: inherit; margin-right: 10px;}
+       #span {display: inline-block; width: 60px; height: 24px; background-color: #f00; color: #fff; margin: 5px 10px; text-align: center; }
+	</style>
+</head>
+<body>
+    <input type="text" id="inp"  class="inp">
+    <div id="btn-grp" class="btn-grp">
+    	<button id="btn-1">左侧入</button>
+    	<button id="btn-2">右侧入</button>
+    	<button id="btn-3">左侧出</button>
+    	<button id="btn-4">右侧出</button>
+    </div>
+    <div id="num" class="num"></div>
+	<script type="text/javascript">
+	    /*添加绑定事件函数，兼容 IE*/
+		function addEventHandler(ele,event,handler){
+			if(ele.addEventListener){
+				ele.addEventListener(event, handler, false);
+			}else if(ele.attachEvent){
+				ele.attachEvent("on"+event,handler);
+			}else {
+				ele["on"+event]=handler;
+			}
+		}
+		//为数组每一个元素添加
+		function each(arr,fn){
+           for(var i=0; i< arr.length; i++){
+           	   fn(arr[i]);
+           }
+		}
+		window.onload= function(){
+			var num= document.getElementById("num");
+			var inp= document.getElementById("inp");
+			var queue= {
+				str: [],
+				isEmpty: function() {
+					if(this.str.length==0){
+
+						
+						return false;
+					}else{
+						return true;
+					}
+				},
+
+				leftPush: function(num){
+                   this.str.unshift(num);
+                   this.render();
+				},
+				rightPush: function(num){
+                   this.str.push(num);
+                   this.render();
+				},
+				leftPop: function(){
+                    if(this.isEmpty()){
+                    	alert(this.str.pop());
+                        this.render();
+                    }else {
+                    	alert("the queue is empty!");
+                    	return;
+                    }
+				},
+				rightPop: function(){
+                    if(this.isEmpty()){
+                    	alert(this.str.shift());
+                        this.render();
+                    }else {
+                    	alert("the queue is empty!");
+                    	return;
+                    }
+				},
+				render: function(){
+					var str='';
+					each(this.str, function(item){
+
+                       str+="<div id='span'>"+item+"</div>";
+					});
+					num.innerHTML=str;
+
+				},
+				deleteID: function(id){
+                    this.str.splice(id, 1);
+                    this.render();
+				}
+
+			}
+
+			function addDivDelEvent(){
+				for(var i=0; i<num.childNodes.length; i++){
+					addEventHandler(num.childNodes[i], "click", function(num){
+                      return function() {return queue.deleteID(num)};
+					})(i);
+				}
+			}
+			function checkNum(){
+				var str= inp.value;
+				if(!str.match(/^[0-9]+$/)){
+					alert("please input a number!!");
+					return false;
+				}else {
+					return true;
+				}
+			}
+			//bangding
+			var bt1= document.getElementById("btn-1");
+			var bt2= document.getElementById("btn-2");
+			var bt3= document.getElementById("btn-3");
+			var bt4= document.getElementById("btn-4");
+			
+			addEventHandler(bt1, "click",function(){
+               if(checkNum()){
+                 var value= inp.value;
+                 queue.leftPush(value);
+                }
+			});
+			addEventHandler(bt2, "click",function(){
+                if(checkNum()){
+                 var value= inp.value;
+                 queue.rightPush(value);
+                }
+               
+			});
+            addEventHandler(bt3, "click",function(){
+                queue.rightPop();
+			});
+			addEventHandler(bt4, "click",function(){
+                queue.leftPop();
+			});
+
+		}
+
+		
+	</script>
+</body>
+</html>

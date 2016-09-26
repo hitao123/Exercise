@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>html 标签</title>
+	<link rel="stylesheet" type="text/css" href="css/task5.css">
+	<!--[if lt IE 9]>
+	  <script>
+	    document.createElement("header" );
+	    document.createElement("footer" );
+	    document.createElement("section"); 
+	    document.createElement("aside"  );
+	    document.createElement("nav"    );
+	    document.createElement("article"); 
+	    document.createElement("hgroup" ); 
+	    document.createElement("time"   );
+	  </script>
+	    <noscript>
+		   <strong>Warning !</strong>
+			   Because your browser does not support HTML5, some elements are simulated using JScript.
+			   Unfortunately your browser has disabled scripting. Please enable it in order to display this page.
+		</noscript>
+    <![endif]-->
+	
+</head>
+<body>
+	<header id="header" class="header">
+		<nav id="nav" class="nav">
+			<div class="nav-l">
+				<a href="#"><img src="images/bd_logo.png" alt=""></a>
+			</div>
+			<div class="nav-r">
+				<a href="#">导航链接1</a>
+				<a href="#">导航链接2</a>
+				<a href="#">导航链接3</a>
+				<a href="#">导航链接4</a>
+			</div>
+		</nav>
+	</header>
+	<div id="content">
+		<div class="con-top clearfix">
+			<div class="con-top-l">
+				<h1 class="h1">文章一级标题</h1>
+				<h2 class="h2">文章二级标题</h2>
+				<h5 class="h5">文章作者 文章发表时间</h5>
+				<p class="con-p">一座山，隔不断两两相望。一段情，诉不完生生执念。回首往事，你我笑看庭前花落，细水长流。如今你我两鬓斑白，
+				容颜枯槁，却始终无法相守相伴。解开记忆的封印，往事如烟，萦绕记忆的废墟之上烟柳飘渺，樱花烂漫。我踏青归来，
+				不料遭遇横祸，君一袭羽衣，执剑相救。愿以清茶相待，以报君之恩情。<a href="#">这是一个链接</a>话未出口，君迹缺缺。败兴而归，一路静默。独坐阁楼，忆君之事。情之確起，
+				不知从何说起。不知何时，早已习惯了游走于那片樱花树下，不知是喜欢那份唯美，还是期待与君想遇。樱花已败，柳叶不复当年，其黄而陨。系君之心，愈发浓郁。青涩已退，芳华攀升。求娶之人，络绎不绝。高堂之命，汝不感违。本以心灰意冷，无奈命运捉弄。枯树瘦芽，寒鸦確起，无意赏菊，随意漫步，再次与君，双眸流光。</p>
+				<p class="con-img"><img src="images/con-top.png" alt=""></p>
+				<p class="con-p">君如初见之时，一袭白袍，风姿绰约，宛如仙人。与君品茶论棋，共赏风月。相伴几许，情根深种。奈何双亲阻挠，你我被迫分离。君心无奈，只好追逐功名。临行之前，再三叮咛，破敌之军，封侯之时。定红妆千里，凤冠霞帔，迎娶汝。含泪与君挥别，坐等闺房，日日等君归。杨花三月，荷香四溢。与君分别，已有两年。君音杳杳，双亲不耐。父母之命，媒说之言，无力反抗。高堂逼婚，日期渐近。那日，我红妆素裹，却不是为君。车鸾碾碾，红泪几行。军骑阵阵，如风过耳。无奈一顶鸾轿，隔断你我。擦肩而过，不知双方。汝知君心，君晓汝意。只道缘浅，奈何情深。</p>
+			</div>
+			<div class="con-top-r">
+				<h2 class="h2">这里以后是侧栏，这是侧栏的标题</h2>
+				<form id="form" class="form" action="" >	
+					<label for="email" class="con-label">请输入邮箱地址</label>
+					<input type="text" class="con-inp">
+					<div class="con-limit" style="display: none;">邮箱地址请按要求格式输入</div>
+					<label for="password" class="con-label">请输入密码</label>
+					<input type="password" class="con-inp">
+					<label for="password" class="con-label">请确认密码</label>
+					<input type="password" class="con-inp">
+					<div class="con-limit" style="display: none;">密码为6-16位英文字母，区分大小写</div>
+					<label for="sex" class="con-label">性别</label>
+						<input type="radio" class="con-radio">男
+						<input type="radio" class="con-radio">女
+						<label for="placeholder" class="pla"></label>
+					<label for="city" class="con-label">城市</label>
+					<select name="con-city" id="con-city">
+						<option value="1">北京</option>
+						<option value="2">上海</option>
+						<option value="3">广州</option>
+						<option value="4">武汉</option>
+					</select>
+					<label for="placeholder" class="pla"></label>
+					<label for="hobby" class="con-label">爱好</label>
+						<input type="checkbox">运动
+						<input type="checkbox">艺术
+						<input type="checkbox">体育
+						<label for="placeholder" class="pla"></label>
+					<label for="description" class="con-label con-label-mar">个人描述</label>
+					<textarea id="textarea" class="textarea"></textarea>
+					<button id="con-btn" class="con-btn" type="submit">确认提交</button>
+				</form>
+			</div>
+		</div>
+		<div id="con-bai-1" class="con-bai-1">
+                <h1 class="h1">文章一级标题</h1>
+				<h2 class="h2">文章二级标题</h2>
+				<h5 class="h5">文章作者 文章发表时间</h5>
+				<p class="con-p">一座山，隔不断两两相望。一段情，诉不完生生执念。回首往事，你我笑看庭前花落，细水长流。如今你我两鬓斑白，
+				容颜枯槁，却始终无法相守相伴。解开记忆的封印，往事如烟，萦绕记忆的废墟之上烟柳飘渺，樱花烂漫。我踏青归来，
+				不料遭遇横祸，君一袭羽衣，执剑相救。愿以清茶相待，以报君之恩情。<a href="#">这是一个链接</a>话未出口，君迹缺缺。败兴而归，一路静默。独坐阁楼，忆君之事。情之確起，
+				不知从何说起。不知何时，早已习惯了游走于那片樱花树下，不知是喜欢那份唯美，还是期待与君想遇。樱花已败，柳叶不复当年，其黄而陨。系君之心，愈发浓郁。青涩已退，芳华攀升。求娶之人，络绎不绝。高堂之命，汝不感违。本以心灰意冷，无奈命运捉弄。枯树瘦芽，寒鸦確起，无意赏菊，随意漫步，再次与君，双眸流光。</p>
+				<p class="con-img"><img src="images/con-top.png" alt=""></p>
+				<ul id="con-bai-ul" class="con-ba-ul">
+					<li><a href="#">列表项目一</a></li>
+					<li><a href="#">列表项目二</a></li>
+					<li><a href="#">列表项目三</a></li>
+				</ul>
+		</div>
+		<div id="con-bai-2" class="con-bai-2">
+		    <h1 class="h1">图片</h1>
+			<ul id="con-ba-ul-1" class="con-ba-ul-1">
+				<li>
+					<h6>好看的图片</h6>
+					<a href="#"><img src="images/con-img.png" alt=""></a>
+				</li>
+				<li>
+					<h6>好看的图片</h6>
+					<a href="#"><img src="../images/con-img.png" alt=""></a>
+				</li>
+				<li>
+					<h6>好看的图片</h6>
+					<a href="#"><img src="images/con-img.png" alt=""></a>
+				</li>
+				<li>
+					<h6>好看的图片</h6>
+					<a href="#"><img src="images/con-img.png" alt=""></a>
+				</li>
+				<li>
+					<h6>好看的图片</h6>
+					<a href="#"><img src="images/con-img.png" alt=""></a>
+				</li>
+				<li>
+					<h6>好看的图片</h6>
+					<a href="#"><img src="images/con-img.png" alt=""></a>
+				</li>
+				<li>
+					<h6>好看的图片</h6>
+					<a href="#"><img src="images/con-img.png" alt=""></a>
+				</li>
+				<li>
+					<h6>好看的图片</h6>
+					<a href="#"><img src="images/con-img.png" alt=""></a>
+				</li>
+				<li>
+					<h6>好看的图片</h6>
+					<a href="#"><img src="images/con-img.png" alt=""></a>
+				</li>
+				<li>
+					<h6>好看的图片</h6>
+					<a href="#"><img src="images/con-img.png" alt=""></a>
+				</li>
+			</ul>
+		</div>
+		<div id="con-bai-3" class="con-bai-1">
+			<h1 class="h1">最后一篇文章标题</h1>
+			<h2 class="h2">文章二级标题</h2>
+			<h5 class="h5">文章作者 文章发表时间</h5>
+			<ol id="con-bai-ol" class="con-bai-ol">
+				<li>排名一</li>
+				<li>排名二</li>
+				<li>排名三</li>
+			</ol>
+			<p>下面是一个表格！</p>
+			<table id="con-table" class="con-table" cellspacing="0" cellpadding="0">
+				<thead>
+					<tr>
+						<th>表头</th>
+						<th>表头</th>
+						<th>表头</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>表头内容单元格</td>
+						<td>表头内容单元格</td>
+						<td><a href="#">操作</a></td>
+					</tr>
+					<tr>
+						<td>表头内容单元格</td>
+						<td>表头内容单元格</td>
+						<td><a href="#">操作</a></td>
+					</tr>
+					<tr>
+						<td>表头内容单元格</td>
+						<td>表头内容单元格</td>
+						<td><a href="#">操作</a></td>
+					</tr>
+					<tr>
+						<td>表头内容单元格</td>
+						<td>表头内容单元格</td>
+						<td><a href="#">操作</a></td>
+					</tr>
+					<tr>
+						<td>总计</td>
+						<td>1000</td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<footer class="footer" id="footer">
+		<p>版权所有@Baidu</p>
+	</footer>
+</body>
+</html>

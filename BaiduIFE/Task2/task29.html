@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>验证表单</title>
+	<style type="text/css">
+       * {margin: 0; padding: 0;}
+       body {font: normal 16px/1 宋体; color: #ccc;}
+       #content {width: 600px; margin: 100px auto;}
+       #form {width: 100%; height: 30px; }
+       #form label {display: inline-block;  margin-right: 20px; text-align: center; font: inherit;}
+       .input {display: inline-block; width: 180px; height: 24px; border: 2px solid #aaa; border-radius: 5px; }
+       #form .btn {display: inline-block; width: 80px; height: 24px; border: 1px solid #ddd; border-radius: 5px; font: inherit; }
+       #form .warn {border: 2px solid #f00;}
+       #tip { width: 100%; height: 20px; color: #a8a8a8; padding-left: 4rem;}
+	</style>
+</head>
+<body>
+	<div id="content">
+		<div  id="form" class="form">
+			<label for="">名称</label>
+			<input type="text" class="input" id="inp">
+			<button id="btn" class="btn" onclick="validateForm();">确定</button>
+		</div>
+		<div class="tip" id="tip">
+			
+		</div>
+	</div>
+	<script type="text/javascript">
+	var inp = document.getElementById("inp");
+	var tip = document.getElementById("tip");
+		function validateForm(){
+			var value = inp.value;
+			if(countLength(value) == 0){
+				inp.style.border = "2px solid #f00";
+				tip.style.color = "red";
+				tip.innerHTML = "姓名不能为空";
+			}
+			else if(countLength(value) >=4 && countLength(value) <= 16){
+				 inp.style.border = "2px solid lightgreen";
+				 tip.style.color = "lightgreen";
+				 tip.innerHTML="输入格式正确";
+			} else {
+				inp.style.border = "2px solid red";
+				tip.style.color = "red";
+				tip.innerHTML="长度为4~16个字符";
+			}
+		}
+		function countLength(str) {
+			var inputlength = 0;
+			for (var i = 0; i < str.length; i++) {
+				var charcode = str.charCodeAt(i);
+				if(charcode >= 0 && charcode <= 128){
+                   inputlength += 1;
+				}else {
+				   inputlength += 2;
+				}
+			}
+			return inputlength;
+		}
+		
+	</script>
+</body>
+</html>

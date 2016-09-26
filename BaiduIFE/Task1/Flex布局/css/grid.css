@@ -1,0 +1,9 @@
+* {margin: 0; padding: 0; box-sizing: border-box;}
+#auto,#container {width: 1000px; margin: 50px auto; border: 2px solid #eee; padding: 20px; border-radius: 5px;}
+.grid {display: flex;}
+.grid .grid-item {flex: 1;/* flex-grow flex-shrink flex-basis*/ background-color: #f4f3f0; margin: 10px; border-radius: 5px; text-align: center; line-height: 60px;}
+.grid .grid-cell {flex: 1;/* flex-grow flex-shrink flex-basis*/ background-color: #f4f3f0; margin: 10px; border-radius: 5px; text-align: center; line-height: 60px;}
+.grid .u-f2 {flex: 0 0 50%;}
+.grid .u-f3 {flex: 0 0 33.33333%;}
+.grid .grow-f2 {flex: 2;}
+.grid .grow-f3 {flex: 3;}

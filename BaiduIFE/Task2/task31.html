@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task31</title>
+	<style type="text/css">
+		* {margin: 0; padding: 0;}
+		body {font-size: 62.5%; /* 1em = 10px*/ font-family: 微软雅黑;}
+		#content {width: 100em; margin: 10em auto;}
+        #io-school {width: 100%; text-align: center;}
+ 		#io-school .io-s-l {display: inline; height: 30px; color: #000;}
+ 		#io-school .io-s-r {display: inline; height: 30px; margin-left: 150px;}
+ 		#in-school  {width: 50em; margin: 0 auto;}
+ 		#non-school {width: 50em; margin: 0 auto; display: none;}
+ 		#io-school .label {font: normal 2em/3em 微软雅黑; }
+        #in-school .label {font: normal 2em/3em 微软雅黑; }
+        #in-school .select {width: 15em; height: 2em; border-radius: 5px; border: 2px solid #ccc; margin-left: 3em;}
+        #non-school .label {font: normal 2em/3em 微软雅黑; }
+		#non-school .text {width: 15em; height: 2em; border-radius: 5px; border: 2px solid #ccc; margin-left: 3em;}
+	</style>
+</head>
+<body>
+	<div id="content">
+		<form action="" id="form">
+		<section id="io-school">
+			<div class="io-s-l">
+				<input id="inp-l" type="radio" class="input-radio" name="school">
+				<label class="label">在校生</label>
+			</div>
+			<div class="io-s-r">
+				<input id="inp-r" type="radio" class="input-radio" name="school">
+				<label class="label">非在校生</label>
+			</div>
+		</section>
+		<section id="wrap">
+		    <div id="in-school">
+				<label for="" class="label">学校</label>
+				<select id="city" class="select">
+					<option value="bj">北京</option>
+					<option value="sh">上海</option>
+					<option value="gz">广州</option>
+					<option value="wh">武汉</option>
+				</select>
+				<select id="univers" class="select">
+				</select>
+			</div>
+			<div id="non-school">
+				<label class="label">就业单位</label>
+				<input type="text" placeholder="就业单位名称" class="text">
+			</div>
+		</section>
+		</form>
+	</div>
+	<script type="text/javascript">
+		
+		var city_uni = {
+			bj : ["清华大学","北京大学","北京交通大学","北京邮电大学","北京科技大学","北京电影学院","中国农业大学","北京师范大学"],
+			sh : ["复旦大学","上海交通大学","同济大学","上海大学","上海财经大学"],
+			gz : ["中山大学","广州大学","深圳大学","汕头大学","广州中医药大学","华南理工大学"],
+			wh : ["武汉大学","华中科技大学","武汉理工大学","华中师范大学","中南财经政法大学","华中农业大学","武汉科技大学"]
+			
+		}
+
+        var inpl = document.getElementById("inp-l");
+        var inpr = document.getElementById("inp-r");
+        var ins  = document.getElementById("in-school");
+        var nos  = document.getElementById("non-school");
+ 		
+ 		//绑定事件
+		function addEventHandler(ele,event,handler){
+            if(ele.addEventListener){
+            	ele.addEventListener(event, handler,false);
+            }else if(ele.attachEvent){
+            	ele.attachEvent("on"+event,handler);
+            }else {
+            	ele["on"+event]=handler;
+            }
+		}
+
+		//借鉴写法
+		$  = function (el) {
+			return document.querySelector(el);
+		}
+		$$ = function (el) {
+			return document.querySelectorAll(el);
+		}
+
+        function show(){
+             if(inpl.checked){
+                 nos.style.display = 'none';
+                 ins.style.display  = 'block';
+             }else if(inpr.checked){
+             	 nos.style.display  = 'block';
+             	 ins.style.display  = 'none';
+             }
+        }
+
+        
+        function selectChange(){
+             var    city = document.getElementById("city");
+             var univers = document.getElementById("univers");
+             var opt   = city.options[city.selectedIndex].value;
+             console.log(city.selectedIndex);
+             univers.innerHTML = '';
+             for (var i = 0; i < city_uni[opt].length; i++) {
+             	var option = document.createElement("option");
+             	option.value =  city_uni[opt][i];
+             	option.innerHTML = city_uni[opt][i];
+             	univers.appendChild(option);
+             }
+
+        };
+
+        window.onload = function (){
+        	var    city = document.getElementById("city");
+        	addEventHandler(inpl,"click",show);
+        	addEventHandler(inpr,"click",show);
+        	addEventHandler(city,"change",selectChange);
+        }
+	</script>
+</body>
+</html>

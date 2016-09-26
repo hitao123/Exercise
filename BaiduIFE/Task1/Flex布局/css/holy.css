@@ -1,0 +1,11 @@
+* {margin: 0; padding: 0; box-sizing: border-box;}
+#wrap {display: flex; flex-direction: column; width: 1000px; min-height: 100vh; margin: 50px auto; border: 2px solid #eee; border-radius: 5px;}
+#holy-header,#holy-footer {flex: 1; background-color: #ccc; text-align: center;}
+#container {flex: 3; display: flex;}
+.holy-main {flex: 3; background-color: lightblue; text-align: center;}
+.holy-nav {flex: 1; order: -1; background-color: lightgreen; text-align: center;}
+.holy-aside {flex: 1; background-color: #f4f3f0; text-align: center;}
+@media  (max-width: 768px) {/*小于768px */
+	#container {flex: 2; display: flex; flex-direction: column;}
+	.holy-main,.holy-nav,.holy-aside {flex: auto;}
+}

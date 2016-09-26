@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Task 30 表单验证</title>
+	<style type="text/css">
+        * {margin: 0; padding: 0;}
+        body {font: normal 16px/1.5 微软雅黑; color: #000;}
+        .content {width: 1200px; margin: 0 auto; text-align: center; padding: 50px 0;}
+        .label {width: 80px; height: 66px; line-height: 66px; font: inherit; text-align: left; display: inline-block;}
+        .input {width: 1000px; height: 62px; border: none; box-shadow: 2px 2px 15px #DDEDFA; border: 2px solid #62AEEC; border-radius: 10px;}
+        .tip {height: 24px; margin: 10px auto; font: inherit; color: #eee; padding: 0 9rem ; text-align: left;}
+        #btn {width: 160px; height: 64px; border: 2px solid #2F79BA; border-radius: 8px; background-color: #2E6AA8; color: #fff; font: inherit;}
+	</style>
+</head>
+<body>
+	<div class="content">
+		    <section>
+				<label for="" class="label">名称</label>
+				<input type="text" class="input" id="name">
+				<p class="tip">232323</p>
+			</section>
+			<section>
+				<label for="" class="label">密码</label>
+				<input type="password" class="input" id="passwd">
+				<p class="tip"></p>
+			</section>
+			<section>
+				<label for="" class="label">密码确认</label>
+				<input type="password" class="input" id="passwdas">
+				<p class="tip">1213323</p>
+			</section>
+			<section>
+				<label for="" class="label">邮箱</label>
+				<input type="text" class="input" id="mail">
+				<p class="tip">23232</p>
+			</section>
+			<section>
+				<label for="" class="label">手机</label>
+				<input type="text" class="input" id="mobile">
+				<p class="tip"></p>
+			</section>
+			<button  class="btn" id="btn">提交</button>
+		
+	</div>
+	<script type="text/javascript">
+	    //绑定事件
+	    function addEventHandler(ele,event,handler){
+	     if(ele.addEventListener){
+	      ele.addEventListener(event, handler,false);
+	     }else if(ele.attachEvent){
+	      ele.attachEvent("on"+event,handler); //IE方法
+	     }else{
+	      ele["on"+event]=handler;
+	     }
+	    }
+		//借鉴写法
+		$  = function (el) {
+			return document.querySelector(el);
+		}
+		$$ = function (el) {
+			return document.querySelectorAll(el);
+		}
+        //最后提交结果
+        var checkResult = {
+        	Validate : false,
+        	tip      : ''
+        }
+
+        var inputEle = [$('#name'),$('#passwd'),$('#passwdas'),$('#mail'),$('#mobile')];
+        var orginTip = ['必填,长度为4-16个字符','6-16位数字或者字母','确认密码','example@qq.com','请输入11位手机号'];
+        
+        //验证
+        function checkValue (ele) {
+        	var str = ele.value.trim();
+        	if(str.length == 0){
+        		checkResult.Validate = false;
+        		checkResult.tip      = "输入不能为空!";
+        		return;
+        	}
+        	if(ele == inputEle[0]){
+               var len = str.replace(/\s/, '').length;
+               if(len >=4 && len <=16){
+                 checkResult.Validate = true;
+        		 checkResult.tip      = "名称合法";
+               }else {
+                 checkResult.Validate = false;
+        		 checkResult.tip      = "输入内容不合法!请检查名称字符数";
+               }
+        	}
+        	if(ele == inputEle[1]){
+        		if(str.match(/^[A-Za-z0-9]{6,16}$/)) {
+                 checkResult.Validate = true;
+        		 checkResult.tip      = "密码格式正确";  
+        		}else {
+                 checkResult.Validate = false;
+        		 checkResult.tip      = "密码格式错误，请输入6-16位数字或者字母！！！";
+        		}
+        	}
+        	if(ele == inputEle[2]){
+        		if(str == inputEle[1].value.trim()){
+        		 checkResult.Validate = true;
+        		 checkResult.tip      = "密码一致";	
+        		}else {
+        		 checkResult.Validate = false;
+        		 checkResult.tip      = "密码不一致";
+        		}
+        	}
+        	if(ele == inputEle[3]){
+        		if(str.match(/^([a-zA-Z0-9_\.\-])+@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/)) {
+                 checkResult.Validate = true;
+        		 checkResult.tip      = "邮箱格式正确";  
+        		}else {
+                 checkResult.Validate = false;
+        		 checkResult.tip      = "邮箱格式错误，请输入正确的邮箱格式！！！";
+        		}
+        	}
+        	if(ele == inputEle[4]){
+        		if(str.match(/^1[0-9]{10}$/)) {
+                 checkResult.Validate = true;
+        		 checkResult.tip      = "手机格式正确";  
+        		}else {
+                 checkResult.Validate = false;
+        		 checkResult.tip      = "手机格式错误，请输入11位手机号！！！";
+        		}
+        	}
+        }
+
+
+        //为每一个input 添加事件
+        (function addEvent(){
+             for (var i = 0; i < inputEle.length; i++) {
+             	addEventHandler(inputEle[i], 'blur',function(e){
+                    checkValue(e.target);
+                    var ptip = e.target.parentElement.getElementsByClassName('tip')[0];
+                    ptip.innerHTML = checkResult.tip;
+                    if(checkResult.Validate){
+                         e.target.style.border = "2px solid green";
+                         ptip.style.color      = 'green';
+                    }else {
+                         e.target.style.border = "2px solid red";
+                         ptip.style.color      = 'red';
+                    }
+
+             	});
+             	addEventHandler(inputEle[i], 'focus',function(e){
+                    var index        = inputEle.indexOf(e.target);
+                    var ptip         = e.target.parentElement.getElementsByClassName('tip')[0];
+                    ptip.innerHTML   = orginTip[index];
+                    ptip.style.color = 'grey';
+             	});
+             }   //for
+        })();
+
+         //为btn绑定事件
+          addEventHandler($('#btn'), 'click',function(e){
+             //e.preventDefault();
+             var right = true;
+             for (var i = 0; i < inputEle.length; i++) {
+             	var input = inputEle[i];
+                checkValue(input);
+             	var ptip         = input.parentElement.getElementsByClassName('tip')[0];
+             	console.log(ptip);
+                ptip.innerHTML   = checkResult.tip;
+                if(checkResult.Validate){
+                     inputEle[i].style.border = "2px solid green";
+                     ptip.style.color      = 'green';
+                }else {
+                     inputEle[i].style.border = "2px solid red";
+                     ptip.style.color      = 'red';
+                     right = false;
+                }
+             }
+              if(right){
+                alert("提交成功！");
+              }else{
+                alert("提交失败！");
+                $('#passwd').value = '';
+                $('#passwdas').value = '';
+               }
+
+          });
+        
+	</script>
+</body>
+</html>

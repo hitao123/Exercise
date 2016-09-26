@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test Html5</title>
+	<style type="text/css">
+      * {margin: 0; padding: 0;}
+      .content {width: 1200px; margin: 0 auto; padding: 20px 0;}
+      #canvas { border: 2px solid #333;}
+      .img {width: 1200px; height: 800px; overflow: hidden;}
+	</style>
+</head>
+<body>
+	<div class="content">
+		<canvas id="canvas">你的浏览器不支持canvas!!!</canvas>
+		<div class="img"><img id="image" src="images/004.jpg" alt=""></div> 
+	</div>
+</body>
+  <script type="text/javascript">
+  	 window.onload = function(){
+  	 	 var canvas  = document.getElementById("canvas"); //获取canvas
+  	 	 canvas.width  = 1200;
+  	 	 canvas.height = 600;
+	  	 var context = canvas.getContext('2d'); //获取2d上下文绘图环境
+	 //  	 context.strokeStyle = "#aaa"; //描边样式, #666,rgba(12,12,13,0.3)
+	 //  	 context.fillStyle   = "#ff0000";  //填充样式
+	 //     context.fillRect(10,10,50,50);
+
+
+		//  context.strokeStyle= "rgba(77,99,98,1)";
+		//  context.lineWidth = 2;
+	 //     context.strokeRect(30,30,50,50);
+	     
+		//  //context.clearRect(0,0,22,22); //清除矩形
+		//  //绘制路径
+		// context.beginPath();
+  //       context.arc(200,100,40,0,2*Math.PI,true);
+
+  //       context.moveTo(70, 70);
+  //       context.lineWidth = 10;
+  //       context.lineTo(500,400);
+  //       //context.lineCap = "butt";
+		// context.lineCap = "round";
+		// //context.lineCap = "square";
+  //       context.stroke();
+  //       context.closePath();
+  //       //context.fill();
+
+  //       //绘制文本
+  //       context.font = "bold 50px Arial";
+  //       context.textAlign = "center";
+  //       context.textBaseLine = "middle";
+  //       context.fillText("华海涛",100,200);
+  //       //strokeText();
+        
+
+  //       //变换
+  //       context.strokeStyle = "#aaa";
+  //       context.translate(400,100);
+  //       context.beginPath();
+  //       context.moveTo(0,0);
+  //       context.lineTo(450,200);
+  //       context.moveTo(0, 0);
+  //       context.lineTo(450,300);
+  //       context.stroke();
+  //       context.closePath();
+  //       //绘制图像 9个参数
+  //       //var image = document.getElementById("image");
+  //       //context.drawImage(image,10,10); //起点 x y
+  //       //context.drawImage(image,50,20,20,30); //x,y,wd,hg
+  //       //context.drawImage(image,0,0,500,500,0,0,250,300); // src x y wd hg   des x y wd hg 
+  //       //阴影
+  //       context.shadowOffsetX = 5;
+  //       context.shadowOffsetY = 5;
+  //       context.shadowBlur    = 4;
+  //       context.shadowColor   = "rgba(15,65,89,0.3)";
+  //       context.fillStyle = "lightgreen";
+  //       context.fillRect(50,50,100,100);
+
+        //渐变
+        // var gradient = context.createLinearGradient(20,20,100,100);  //不太明白这几个参数的意思
+        // gradient.addColorStop(0,"red");
+        // gradient.addColorStop(1,"lightblue");
+        // context.fillStyle = gradient;
+        // context.fillRect(0,0,500,300);
+        var image = document.getElementById("image");
+        //context.drawImage(image,10,10); //起点 x y
+        context.drawImage(image,0,0,800,500); //x,y,wd,hg
+        //context.drawImage(image,0,0,500,500,0,0,500,500); // src x y wd hg   des x y wd hg 
+
+        //使用图像数据
+        image.crossOrigin = 'http://profile.ak.fbcdn.net/crossdomain.xml';
+        var imageData = context.getImageData(0,0,800,800); //x y wd hg 
+        var      data = imageData.data;
+        console.log(data);
+         for (var i = 0; i < data.length; i+=4) {
+         	red = data[i];
+          green = data[i+1];
+           blue = data[i+2];
+          alpha = data[i+3];
+          average = Math.floor((red+green+blue)/3);
+          data[i]   = average;
+          data[i+1] = average;
+          data[i+2] = average;
+          console.log(data[i]);
+         }
+         console.log(average);
+         imageData.data = data;
+         context.putImageData(imageData,0,0);
+
+  	 } 
+  </script>
+</html>

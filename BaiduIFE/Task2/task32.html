@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Task 32 表单生成器</title>
+	<style type="text/css">
+		* {margin: 0; padding: 0;}
+		.clearfix:after {content: '.'; clear: both; display: block; visibility: hidden; height: 0;}
+		#wrap {width: 1200px; padding: 50px 0; margin: 0 auto;}
+		.h1 {text-align: center; line-height: 50px; height: 50px; margin-bottom: 20px;}
+		.h2 {text-align: center; line-height: 30px; height: 30px; margin-bottom: 20px;}
+        #aside {float: left; width: 400px;}
+        #product {float: right; width: 700px; margin: 26px 48px; border: 2px solid #eee; border-radius: 10px;}
+        .form {margin-top: 20px;}
+        .select {width: 120px; height: 24px; margin: 20px;}
+        .input {width: 120px; height: 24px; border-radius: 5px; text-align: center; margin-bottom: 10px;}
+        #form5 .input {width: 280px; margin-left: 20px;}
+        #product .input {width: 280px; margin-left: 20px;}
+        #btn {width: 80px; height: 30px; background-color: lightblue; border-radius: 5px; cursor: pointer; margin-top: 20px; border: none;}
+	</style>
+</head>
+<body>
+	<div id="wrap" class="clearfix">
+		<h1 class="h1">表单生成器</h1>
+		<aside id="aside">
+			<form action="" id="form1" class="form">
+				<fieldset>
+					<legend>类型</legend>
+					<select name="" id="select1" class="select">
+						<option value="input">输入框</option>
+						<option value="single">单选</option>
+						<option value="multipule">多选</option>
+						<option value="drop">下拉框</option>
+						<option value="textarea">文本域</option>
+					</select>
+				</fieldset>
+			</form>
+			<form action="" id="form2" class="form">
+				<fieldset>
+					<legend>配置</legend>
+					<label for="">名称</label>
+					<label for="">23232</label>
+					<input type="radio" name="fill"><label for="">必填</label>
+					<input type="radio" name="fill"><label for="">选填</label>
+					<select name="" id="select2" class="select">
+						<option value="">样式一</option>
+						<option value="">样式二</option>
+					</select>
+				</fieldset>
+			</form>
+			<form action="" id="form3" class="form">
+				<fieldset>
+					<legend>规则</legend>
+					<select name="" id="select3" class="select">
+						<option value="">文字</option>
+						<option value="">数字</option>
+						<option value="">邮箱</option>
+						<option value="">电话号码</option>
+						<option value="">密码</option>
+					</select>
+				</fieldset>
+			</form>
+			<form action="" id="form4" class="form">
+				<fieldset>
+					<legend>长度限制</legend>
+					<label for="">字符范围</label>
+					<input type="text" class="input" placeholder="0">
+					<label for="">--</label>
+					<input type="text" class="input" placeholder="14">
+				</fieldset>
+			</form>
+			<form action="" id="form5" class="form">
+				<fieldset>
+					<legend>选项</legend>
+					<input type="text" class="input" placeholder="可用空格，逗号来分割">
+				</fieldset>
+			</form>
+			<button id="btn">添加</button>
+		</aside>
+		<div id="product">
+		    <h2 class="h2">表单展示区</h2>
+			<input type="text" class="input">
+		</div>
+	</div>
+	<script type="text/javascript">
+		
+	</script>
+</body>
+</html>

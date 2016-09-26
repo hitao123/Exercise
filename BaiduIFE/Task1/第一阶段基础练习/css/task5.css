@@ -1,0 +1,91 @@
+  
+	  /*兼容性做到IE 9 ，IE8 以下不支持html5 header nav 标签 ， 不支持CSS3 新特性
+        IE7 出现如下问题
+        1. 个人描述出现问题 浮动带来的问题
+        2. 图片的ul li 这一块出现问题 
+        3. ol 里的 li list-style 出现问题
+      解决办法如下
+        1. 在 textarea 下设置浮动
+        2. 对于图片那一块是由于IE 7 不认识 display:inline-block; ,兼容写法  *display:inline; *zoom:1;
+        3. 设置 display:list-item; 没有完全解决好，第一个数字还是未显示
+        4. 对于解决IE 9 不支持 header nav footer 标签，MDN 提供了方法，由于默认IE对未识别的元素dispaly:inline;
+        故我们将其变成 dispaly: block; 作相应的变化，然后加上
+        <!--[if lt IE 9]>
+           <script>
+              document.createElement("header" );
+              document.createElement("footer" );
+              document.createElement("section"); 
+              document.createElement("aside"  );
+              document.createElement("nav"    );
+              document.createElement("article"); 
+              document.createElement("hgroup" ); 
+              document.createElement("time"   );
+          </script>
+          <noscript>
+             <strong>Warning !</strong>
+             Because your browser does not support HTML5, some elements are simulated using JScript.
+             Unfortunately your browser has disabled scripting. Please enable it in order to display this page.
+          </noscript>
+        <![endif]-->
+	     */
+    /*header*/
+      *{margin: 0; padding: 0;}
+      a:visited,a:link {color: #d1d1d1; text-decoration: none;}
+      a:hover,a:active {color: #eee}
+      ul,ol,li {list-style: none;}
+      .pad10 {padding-left: 10px;}
+      section, article, aside, footer, header, nav, hgroup { display:block;}
+      body{font-size: 14px; background-color: #ccc;}
+      .clearfix:after {content: '.'; display: block; clear: both; height: 0; visibility: hidden;}
+      .clearfix{clear: both; zoom:1;}
+      .header {background-color: #000; filter: alpha(opacity=60); opacity: .6;}
+      .header .nav {width: 100%; height: 42px; }
+      .nav .nav-l {float: left; margin-left: 30px; }
+      .nav .nav-l img{height: 40px; width: 120px; border: none;}
+      .nav .nav-l a, .nav .nav-r a {display: inline-block;  text-align: center; font: bold 14px/1 Arial;  *display:inline; *zoom:1; }
+      .nav .nav-r {float: right; margin-right: 30px; }
+      .nav .nav-r a {margin-right: 20px; padding: 13px;}
+      /*content*/
+      #content {width: 1300px;  margin: 20px auto;}
+      #content .con-top {margin-bottom: 20px;}
+      #content .con-top-l {float: left; height: 750px; width: 800px;  border: 1px solid #dedede; margin-right: 50px; box-shadow: 2px 2px 2px #000; background-color: #fff; overflow: hidden;}
+      #content .con-top-r {float: right; height: 700px; width: 440px;  border: 1px solid #dedede; box-shadow: 2px 2px 2px #000;  background-color: #fff; overflow: hidden;}
+      #content .con-top-l .h1, #content .con-bai-1 .h1, #content .con-bai-2 .h1, #content .con-bai-3 .h1 {padding: 40px 20px 20px; color: #000;}
+      #content .con-top-l .h2, #content .con-bai-1 .h2, #content .con-bai-3 .h2 {padding: 0 20px 10px; color: rgba(0,0,0,.6);}
+      #content .con-top-l .h5, #content .con-bai-1 .h5, #content .con-bai-3 .h5 {padding: 0 20px 10px; color: rgba(0,0,0,.6);}
+      #con-bai-1 {height: 750px; width: 800px; border: 1px solid #dedede; margin: 20px 0; box-shadow: 2px 2px 2px #000; background-color: #fff; overflow: hidden;}
+      #con-bai-2 {height: 500px; width: 800px; border: 1px solid #dedede; margin: 20px 0; box-shadow: 2px 2px 2px #000; background-color: #fff; overflow: hidden;}
+      #con-bai-3 {height: 750px; width: 800px; border: 1px solid #dedede; margin: 20px 0; box-shadow: 2px 2px 2px #000; background-color: #fff; overflow: hidden;}
+      #content .con-top-l .con-p, #content .con-bai-1 .con-p {padding: 0 20px 10px; text-indent: 30px; line-height: 25px; font: normal 16px/1.5 sans-serif ; }
+      #content .con-top-l .con-img, #content .con-bai-1 .con-img  {padding-left: 20px; padding-bottom: 10px;}
+      #content .con-top-r .h2 {margin: 20px; color: rgba(0,0,0,.9); height: 30px; line-height: 30px; border-left: 2px solid #aaa; text-align: center;}
+      #content .con-top-r .form {margin: 20px;} 
+      #content .con-top-r .con-label {width: 120px; text-align: right; display: inline-block; padding-top:10px; *padding-top:10px; *display:inline; *zoom:1; }
+      #content .con-top-r .con-inp {width: 180px; height: 24px; display: inline-block; margin-top:10px; border: 1px solid #aaa; box-shadow: 1px 1px 1px #000; *display:inline; *zoom:1; }
+      #content .con-top-r .con-radio {width: 16px; height: 16px; display: inline-block; margin-top:10px; *display:inline; *zoom:1; }
+      #content .con-top-r .pla{ width: 120px; height: 20px; display: inline-block; }
+      #content .con-top-r .textarea{ width: 220px; height: 250px; display: inline-block;  margin-top: 20px; margin-left: 8px; border: 1px solid #f3f3f3; box-shadow: 1px 1px 1px rgba(0,0,0,.8); *float: left; *display:inline; *zoom:1; /*兼容IE7*/}
+      #content .con-top-r .con-btn{ width: 100%; height: 44px; display: inline-block; border-radius: 8px; background-color: #3355D0;  margin-top: 10px; outline: none; box-shadow: 2px 2px 2px #3355D0; border-color: #3355D0; cursor: pointer; color: #fff; font: bold 20px/1.5 sans-serif; *display:inline; *zoom:1; }
+      #content .con-top-r .con-btn:hover {opacity: 0.8; color:rgba(255,255,255,.9);}
+      #content .con-top-r .con-label-mar {float: left; margin-top: 10px;}
+      #content .con-limit {padding: 15px 10px 15px 130px;}
+      #content .con-bai-1 .con-ba-ul {padding: 10px 40px;}
+      #con-bai-1 .con-ba-ul  li a {height: 30px; line-height: 30px;  display: inline-block; color: #000; font-family: "微软雅黑"; *display:inline; *zoom:1; }
+      #con-bai-1 .con-ba-ul  li a:hover {opacity: .8;}
+      #con-bai-2 .con-ba-ul-1 {padding: 0 20px 10px;}
+      #con-bai-2 .con-ba-ul-1 li {display: inline-block; padding: 10px; border: 1px solid #d6d6d6; margin-top: 10px; *display:inline; *zoom:1; *margin-right: 10px;}
+      #con-bai-2 .con-ba-ul-1 h6 {padding: 6px 20px;}
+      #con-bai-2 .con-ba-ul-1 a {display: inline-block; *display:inline; *zoom:1; }
+      #con-bai-3 .con-bai-ol {padding: 15px 60px; }
+      #con-bai-3 .con-bai-ol li {height: 28px; list-style: decimal; font: bold 14px/2 微软雅黑; display: list-item; }
+      #con-bai-3  p {margin: 10px 20px 0; font: bold 14px/2 微软雅黑; height: 28px;}
+      #con-bai-3 #con-table {border: 1px solid #d1d1d1; box-shadow: 2px 2px 2px #000; margin: 5px 20px 20px; }
+      #con-bai-3 #con-table {}
+      #con-bai-3 #con-table tr{padding: 5px 5px; font: bold 14px/1.5 微软雅黑;}
+      #con-bai-3 #con-table td,th{ padding: 6px 75px; border: 1px solid #d1d1d1;}
+      #con-bai-3 #con-table th {background-color: #333; color: #fff;}
+      #con-bai-3 #con-table tr:last-child>td {background-color: #ccc;}
+      #con-bai-3 #con-table a {text-decoration: underline; color: blue;}
+      /*footer*/
+      .footer {width: 100%; height: 50px; background-color: rgba(0,0,0,.6);}
+      .footer p{margin: 0 auto; padding: 18px; text-align: center; font: bold 14px Arial;}
